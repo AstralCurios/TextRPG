@@ -1,4 +1,4 @@
-from characters import *
+from characters import Wizard, Rogue, Warrior
 from combat import *
 
 def main():
