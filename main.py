@@ -1,18 +1,20 @@
-#Execute the actual game here
 from characters import *
 from combat import *
 
-#Create characters
-player_name = input("Please enter the name of your character: ")
-print(f"Welcome, {player_name}!")
-player_class = input("Please choose your class (Wizard, Warrior, Rogue): ")
-if player_class.lower() == "wizard":
-    player = Wizard(player_name, stamina=5, intelligence=10)
-elif player_class.lower() == "warrior":
-    player = Warrior(player_name, stamina=10, strength=5)
-elif player_class.lower() == "rogue":
-    player = Rogue(player_name, stamina=7, dexterity=7)
-else:
-    raise Exception("Invalid class selected")
+def main():
+    name = input("Name: ")
+    klass = input("Class (wizard/warrior/rogue): ").lower()
 
-#Run combat
+    if klass == "wizard":
+        player = Wizard(name, stamina=5, intelligence=10)
+    elif klass == "warrior":
+        player = Warrior(name, stamina=10, strength=5)
+    elif klass == "rogue":
+        player = Rogue(name, stamina=7, dexterity=7)
+    else:
+        raise Exception("Invalid class")
+
+    print(f"Welcome, {player.name}!")
+
+if __name__ == "__main__":
+    main()
